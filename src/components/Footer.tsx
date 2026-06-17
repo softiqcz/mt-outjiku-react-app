@@ -79,6 +79,7 @@ function CloseIcon() {
 
 export function Footer() {
   const { i18n, t } = useTranslation();
+  const currentYear = new Date().getFullYear();
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [reportOpen, setReportOpen] = useState(false);
   const [themeMode, setThemeMode] = useState<ThemeMode>("dark");
@@ -170,7 +171,7 @@ export function Footer() {
         </button>
         <div className={styles.meta}>
           <p>{t("footer.coordinates")}</p>
-          <p>{t("footer.copyright")}</p>
+          <p>{t("footer.copyright", { year: currentYear })}</p>
         </div>
       </footer>
 

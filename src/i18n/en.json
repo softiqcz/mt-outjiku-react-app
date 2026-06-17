@@ -162,5 +162,5 @@
   "booking.backgroundAlt": "Namibian savannah landscape at golden hour",
   "footer.settings": "Settings",
   "footer.coordinates": "19°S 17°E — Namibia",
-  "footer.copyright": "© 2025 Mt.Otjiku Getaway. All rights reserved."
+  "footer.copyright": "© {{year}} Mt.Otjiku Getaway. All rights reserved."
 }
