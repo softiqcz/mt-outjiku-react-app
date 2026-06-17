@@ -12,7 +12,7 @@
     "start": "next start",
     "lint": "eslint .",
     "predeploy": "npm run build:github",
-    "deploy": "gh-pages-clean && gh-pages -d out"
+    "deploy": "node scripts/deploy-gh-pages.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
