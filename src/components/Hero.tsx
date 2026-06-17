@@ -3,6 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
+import { useAutoplayVideo } from "@/hooks/useAutoplayVideo";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import styles from "@/styles/Hero.module.css";
 import { publicPath } from "@/utils/publicPath";
@@ -28,6 +29,7 @@ const highlightedWords = new Set([
 export function Hero() {
   const { t } = useTranslation();
   const shouldReduceMotion = usePrefersReducedMotion();
+  const videoRef = useAutoplayVideo<HTMLVideoElement>();
 
   const headingVariants: Variants = shouldReduceMotion
     ? {
@@ -76,12 +78,13 @@ export function Hero() {
   return (
     <section className={styles.hero} aria-label={t("brand.name")}>
         <video
+            ref={videoRef}
             className={styles.video}
             autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             poster={publicPath("/images/pics/preview.png")}
             aria-label={t("hero.videoAria")}
         >

@@ -162,5 +162,5 @@
   "booking.backgroundAlt": "Namibische Savannenlandschaft im goldenen Licht",
   "footer.settings": "Einstellungen",
   "footer.coordinates": "19°S 17°E — Namibia",
-  "footer.copyright": "© 2025 Mt.Otjiku Getaway. Alle Rechte vorbehalten."
+  "footer.copyright": "© {{year}} Mt.Otjiku Getaway. Alle Rechte vorbehalten."
 }

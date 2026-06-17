@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import { useAutoplayVideo } from "@/hooks/useAutoplayVideo";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import styles from "@/styles/Bungalows.module.css";
 import { publicPath } from "@/utils/publicPath";
@@ -76,16 +77,19 @@ function MediaPreview({
   media: MediaItem;
   sizes: string;
 }) {
+  const videoRef = useAutoplayVideo<HTMLVideoElement>();
+
   if (media.type === "video") {
     return (
       <video
+        ref={videoRef}
         src={publicPath(media.src)}
         aria-label={alt}
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
       />
     );
   }

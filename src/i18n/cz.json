@@ -162,5 +162,5 @@
   "booking.backgroundAlt": "Namibijská savana ve zlaté hodině",
   "footer.settings": "Nastavení",
   "footer.coordinates": "19°S 17°E — Namibie",
-  "footer.copyright": "© 2025 Mt.Otjiku Getaway. Všechna práva vyhrazena."
+  "footer.copyright": "© {{year}} Mt.Otjiku Getaway. Všechna práva vyhrazena."
 }
