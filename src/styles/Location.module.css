@@ -1,0 +1,137 @@
+.section {
+  border-top: 1px solid var(--line-faint);
+  border-bottom: 1px solid var(--line-faint);
+  background: var(--dusk);
+  padding: clamp(5.5rem, 12vw, 10rem) var(--section-x);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(16rem, 0.55fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  width: min(100%, var(--content-max));
+  margin: 0 auto;
+}
+
+.copy h2 {
+  margin-top: 0.8rem;
+  color: var(--ivory);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.description {
+  max-width: 48rem;
+  margin-top: 1.4rem;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.coordinates {
+  display: grid;
+  gap: 0.45rem;
+  max-width: 34rem;
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.coordinates span,
+.distances > p {
+  color: var(--sand);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.coordinates strong {
+  color: var(--ivory);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+}
+
+.distances {
+  align-self: end;
+}
+
+.distances dl {
+  display: grid;
+  margin-top: 1.1rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.distanceRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.25rem;
+  align-items: baseline;
+  border-bottom: 1px solid var(--line-soft);
+  padding: 1rem 0;
+}
+
+.distanceRow dt {
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+.distanceRow dd {
+  color: var(--ivory);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.mapPanel {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 1rem;
+}
+
+.mapPanel iframe {
+  width: 100%;
+  height: clamp(22rem, 52vw, 34rem);
+  border: 1px solid var(--ash);
+  filter: saturate(0.78) contrast(1.08) brightness(0.82);
+}
+
+.mapPanel a {
+  width: fit-content;
+  color: var(--sand);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: color 300ms ease;
+}
+
+.mapPanel a:hover {
+  color: var(--ivory);
+}
+
+@media (max-width: 860px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .distances {
+    align-self: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .copy h2 {
+    font-size: clamp(2.6rem, 12vw, 3.25rem);
+    letter-spacing: 0.045em;
+  }
+}

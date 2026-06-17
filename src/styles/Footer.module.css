@@ -1,0 +1,246 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  border-top: 1px solid var(--line-faint);
+  background: var(--obsidian);
+  padding: 2.5rem var(--section-x);
+}
+
+.logo {
+  margin-top: 1rem;
+  color: var(--sand);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.logoImage {
+  width: clamp(5.5rem, 10vw, 8.5rem);
+  height: clamp(5.5rem, 10vw, 8.5rem);
+  object-fit: contain;
+}
+
+.tagline,
+.meta {
+  color: var(--text-subtle);
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+.tagline {
+  margin-top: 0.45rem;
+}
+
+.settings {
+  display: grid;
+  gap: 0.7rem;
+  align-content: start;
+  justify-items: center;
+}
+
+.settingsButton,
+.iconButton,
+.actionButton,
+.fullButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid var(--sand);
+  background: transparent;
+  color: var(--sand);
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  transition: background 300ms ease, border-color 300ms ease, color 300ms ease;
+}
+
+.settingsButton {
+  gap: 0.55rem;
+  align-self: start;
+}
+
+.settingsButton:hover,
+.iconButton:hover,
+.actionButton:hover,
+.fullButton:hover {
+  border-color: var(--ivory);
+  background: var(--ivory);
+  color: var(--obsidian);
+}
+
+.iconButton {
+  min-width: 44px;
+  padding: 0;
+}
+
+.language {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border: 1px solid var(--line-soft);
+  padding-inline: 0.25rem;
+}
+
+.languageButton,
+.activeLanguageButton {
+  min-width: 42px;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--text-subtle);
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  transition: color 300ms ease;
+}
+
+.activeLanguageButton {
+  color: var(--sand);
+}
+
+.languageButton:hover,
+.activeLanguageButton:hover {
+  color: var(--ivory);
+}
+
+.meta {
+  text-align: right;
+}
+
+.settingsPanel,
+.reportDialog {
+  position: fixed;
+  right: var(--section-x);
+  bottom: calc(2.5rem + env(safe-area-inset-bottom));
+  z-index: 1001;
+  width: min(30rem, calc(100vw - (var(--section-x) * 2)));
+  border: 1px solid var(--line-medium);
+  background: var(--dusk);
+  color: var(--ivory);
+  padding: 1.25rem;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.panelHeader h2 {
+  margin-top: 0.4rem;
+  color: var(--ivory);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.settingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--line-soft);
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+}
+
+.settingRow p {
+  color: var(--ivory);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.settingRow span,
+.reportForm label,
+.reportStatus {
+  color: var(--text-subtle);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.fullButton {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.modalLayer {
+  position: fixed;
+  inset: 0;
+  z-index: 1002;
+  display: grid;
+  place-items: center;
+  background: rgb(13 12 10 / 0.74);
+  padding: var(--section-x);
+}
+
+.reportDialog {
+  position: relative;
+  inset: auto;
+}
+
+.reportForm {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.reportForm textarea {
+  min-height: 9rem;
+  width: 100%;
+  resize: vertical;
+  border: 1px solid var(--line-medium);
+  background: transparent;
+  color: var(--ivory);
+  font: inherit;
+  line-height: 1.6;
+  padding: 0.85rem;
+}
+
+.reportForm textarea::placeholder {
+  color: var(--text-subtle);
+}
+
+.reportForm textarea:focus-visible {
+  outline: 1px solid var(--sand);
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .footer {
+    flex-direction: column;
+  }
+
+  .meta {
+    text-align: left;
+  }
+
+  .settings {
+    justify-items: start;
+  }
+
+  .settingsPanel {
+    right: var(--section-x);
+    bottom: var(--section-x);
+  }
+}
+
+@media (max-width: 520px) {
+  .settingRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
