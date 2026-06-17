@@ -2,11 +2,14 @@
   "name": "namibia-react-app",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://softiqcz.github.io/mt-outjikuru-react-app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "predeploy": "nmp run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -28,6 +31,7 @@
     "@types/react-dom": "18",
     "eslint": "^9.28.0",
     "eslint-config-next": "^15.3.3",
+    "gh-pages": "^6.3.0",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3"
   }
