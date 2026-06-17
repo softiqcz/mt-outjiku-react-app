@@ -1,6 +1,6 @@
 # Mt.Otjiku Getaway
 
-Luxury single-page website for **Mt.Otjiku Getaway**, a fictional private bungalow accommodation on Namibia's savannah plains. The site is built as a dark, typographic, motion-led Next.js experience with English and Czech language support.
+Luxury single-page website for **Mt.Otjiku Getaway**, a fictional private bungalow accommodation on Namibia's savannah plains. The site is built as a dark, typographic, motion-led Next.js experience with English, Czech, and German language support.
 
 ## Tech Stack
 
@@ -20,16 +20,20 @@ npm install
 npm run dev
 npm run lint
 npm run build
+npm run build:github
+npm run deploy
 npm run start
 ```
 
 Local development runs at [http://localhost:3000](http://localhost:3000).
 
+`npm run deploy` builds a static GitHub Pages export into `out/` and publishes it to the `gh-pages` branch with `gh-pages -d out`.
+
 ## How The App Works
 
 The app is a single page composed in `src/app/page.tsx`:
 
-- `Header` - brand, external links, Booking.com CTA, quick EN/CZ language switcher
+- `Header` - brand, external links, Booking.com CTA, quick EN/CZ/DE language switcher
 - `Hero` - full-screen MP4 background, theme-aware overlay, animated headline
 - `Philosophy` - typographic statement section
 - `Bungalows` - three bungalow galleries with click-through detail modal
@@ -39,11 +43,11 @@ The app is a single page composed in `src/app/page.tsx`:
 - `Footer` - brand metadata and settings gear
 - `CookieBanner` - local cookie preference banner
 
-Translations live in `src/i18n/en.json` and `src/i18n/cz.json`. The quick language switcher is in the header, and the footer settings panel also includes language controls. The selected language is stored in `localStorage`.
+Translations live in `src/i18n/en.json`, `src/i18n/cz.json`, and `src/i18n/de.json`. The quick language switcher is in the header, and the footer settings panel also includes language controls. The selected language is stored in `localStorage`.
 
 ## Bungalow Media
 
-Bungalow media is folder-driven. The API route `src/app/api/bungalow-media/route.ts` scans these public folders:
+Bungalow media is folder-driven. `scripts/generate-bungalow-media.mjs` scans these public folders and writes `public/bungalow-media.json` for static hosting:
 
 ```text
 public/images/pics/bungalow1
@@ -51,7 +55,7 @@ public/images/pics/bungalow2
 public/images/pics/bungalow3
 ```
 
-The `Bungalows` component fetches `/api/bungalow-media` and renders whatever supported files are present.
+The `Bungalows` component fetches `/bungalow-media.json` and renders whatever supported files are present.
 
 Supported image formats:
 
@@ -65,7 +69,7 @@ Supported video formats:
 .mp4 .mov .webm
 ```
 
-For `bungalow1`, the first video found in the folder is used as the main card media. Images from each bungalow folder are shown in the card thumbnails and detail gallery. New images added to those folders will appear automatically after the server sees the updated folder contents.
+For any bungalow folder, videos are listed before images, so a video becomes the main card media whenever one exists. Images from each bungalow folder are shown in the card thumbnails and detail gallery. New images added to those folders will appear after `npm run generate:media`, `npm run dev`, or `npm run build`.
 
 ## Design System
 
@@ -127,7 +131,6 @@ Cookie preferences are stored locally under `mtOtjikuCookiePreferences` and can 
 ```text
 src/
   app/
-    api/bungalow-media/route.ts
     layout.tsx
     page.tsx
     robots.ts
@@ -149,9 +152,14 @@ src/
     index.ts
     en.json
     cz.json
+    de.json
+  utils/
+    publicPath.ts
   styles/
     global.css
     *.module.css
+scripts/
+  generate-bungalow-media.mjs
 ```
 
 ## Content Notes

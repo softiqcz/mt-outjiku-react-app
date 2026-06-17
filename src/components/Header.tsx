@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import styles from "@/styles/Header.module.css";
+import { publicPath } from "@/utils/publicPath";
 
 const bookingUrl = "https://www.booking.com";
 const facebookUrl = "https://www.facebook.com/profile.php?id=61589606086703";
@@ -109,7 +110,7 @@ export function Header() {
       <a className={styles.brand} href="#main-content">
         <Image
           className={styles.brandLogo}
-          src="/images/logos/logo.png"
+          src={publicPath("/images/logos/logo.png")}
           alt=""
           width={80}
           height={80}

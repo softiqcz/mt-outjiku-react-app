@@ -5,6 +5,7 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import styles from "@/styles/Footer.module.css";
+import { publicPath } from "@/utils/publicPath";
 
 const languages = ["en", "cz", "de"] as const;
 const languageStorageKey = "mtOtjikuLanguage";
@@ -148,7 +149,7 @@ export function Footer() {
         <div>
           <Image
             className={styles.logoImage}
-            src="/images/logos/logo.png"
+            src={publicPath("/images/logos/logo.png")}
             alt=""
             width={220}
             height={223}

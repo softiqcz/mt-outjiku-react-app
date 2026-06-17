@@ -1,0 +1,103 @@
+{
+  "bungalows": [
+    {
+      "id": "dune",
+      "media": [
+        {
+          "src": "/images/pics/bungalow1/2d869573-e806-422b-8ee2-7f7d0231eb6d.MP4",
+          "type": "video"
+        },
+        {
+          "src": "/images/pics/bungalow1/PHOTO-2026-06-17-10-17-40 2.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow1/PHOTO-2026-06-17-10-17-40.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow1/PHOTO-2026-06-17-10-17-41 2.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow1/PHOTO-2026-06-17-10-17-41 3.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow1/PHOTO-2026-06-17-10-17-41 4.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow1/PHOTO-2026-06-17-10-17-41 5.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow1/PHOTO-2026-06-17-10-17-41 6.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow1/PHOTO-2026-06-17-10-17-41 7.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow1/PHOTO-2026-06-17-10-17-41.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow1/PHOTO-2026-06-17-10-17-42.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow1/PHOTO-2026-06-17-10-17-43.jpg",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "id": "kopje",
+      "media": [
+        {
+          "src": "/images/pics/bungalow2/IMG_6869.PNG",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow2/PHOTO-2026-06-17-10-17-43 2.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow2/PHOTO-2026-06-17-10-17-43 3.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow2/PHOTO-2026-06-17-10-17-43 4.jpg",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "id": "horizon",
+      "media": [
+        {
+          "src": "/images/pics/bungalow3/296468b8-b3a7-45e4-8e06-a9560ea2587d.MP4",
+          "type": "video"
+        },
+        {
+          "src": "/images/pics/bungalow3/PHOTO-2026-06-17-10-17-44 2.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow3/PHOTO-2026-06-17-10-17-45 3.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow3/PHOTO-2026-06-17-10-17-45 7.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/pics/bungalow3/PHOTO-2026-06-17-10-17-45 8.jpg",
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}

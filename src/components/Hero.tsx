@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import styles from "@/styles/Hero.module.css";
+import { publicPath } from "@/utils/publicPath";
 
 const bookingUrl = "https://www.booking.com";
 
@@ -81,7 +82,7 @@ export function Hero() {
             loop
             playsInline
             preload="metadata"
-            poster="/images/pics/preview.png"
+            poster={publicPath("/images/pics/preview.png")}
             aria-label={t("hero.videoAria")}
         >
         <source
