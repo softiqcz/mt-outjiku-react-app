@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import styles from "@/styles/Bungalows.module.css";
+import { publicPath } from "@/utils/publicPath";
 
 const bungalowIds = ["dune", "kopje", "horizon"] as const;
 
@@ -78,7 +79,7 @@ function MediaPreview({
   if (media.type === "video") {
     return (
       <video
-        src={media.src}
+        src={publicPath(media.src)}
         aria-label={alt}
         autoPlay
         muted
@@ -89,7 +90,7 @@ function MediaPreview({
     );
   }
 
-  return <Image src={media.src} alt={alt} fill sizes={sizes} />;
+  return <Image src={publicPath(media.src)} alt={alt} fill sizes={sizes} />;
 }
 
 export function Bungalows() {
@@ -134,7 +135,7 @@ export function Bungalows() {
     const controller = new AbortController();
 
     async function loadBungalowMedia() {
-      const response = await fetch("/api/bungalow-media", {
+      const response = await fetch(publicPath("/bungalow-media.json"), {
         signal: controller.signal,
       });
       const payload = (await response.json()) as BungalowMediaResponse;

@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import styles from "@/styles/Experience.module.css";
+import { publicPath } from "@/utils/publicPath";
 
 const experiences = [
   {
@@ -50,7 +51,7 @@ function ParallaxImage({
   return (
     <div className={styles.imageFrame} ref={imageRef}>
       <motion.img
-        src={src}
+        src={publicPath(src)}
         alt={alt}
         loading="lazy"
         style={{ y }}

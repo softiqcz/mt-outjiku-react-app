@@ -2,14 +2,17 @@
   "name": "namibia-react-app",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://softiqcz.github.io/mt-outjikuru-react-app",
+  "homepage": "https://softiqcz.github.io/mt-outjiku-react-app",
   "scripts": {
+    "generate:media": "node scripts/generate-bungalow-media.mjs",
+    "predev": "npm run generate:media",
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run generate:media && next build",
+    "build:github": "npm run generate:media && GITHUB_PAGES=true NEXT_PUBLIC_SITE_URL=https://softiqcz.github.io/mt-outjiku-react-app next build",
     "start": "next start",
     "lint": "eslint .",
-    "predeploy": "nmp run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build:github",
+    "deploy": "gh-pages-clean && gh-pages -d out"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

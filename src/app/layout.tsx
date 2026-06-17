@@ -8,8 +8,13 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.SITE_URL ||
   "http://localhost:3000";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const heroImage =
   "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&q=80";
+
+function publicUrl(path: string) {
+  return `${basePath}${path}`;
+}
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -36,8 +41,29 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: `${siteName} | Luxury Savannah Bungalows in Namibia`,
   description: siteDescription,
-  manifest: "/manifest.json",
+  manifest: publicUrl("/manifest.json"),
   applicationName: siteName,
+  icons: {
+    icon: [
+      { url: publicUrl("/favicon/favicon.ico"), sizes: "any" },
+      {
+        url: publicUrl("/favicon/favicon.svg"),
+        type: "image/svg+xml",
+      },
+      {
+        url: publicUrl("/favicon/favicon-96x96.png"),
+        sizes: "96x96",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: publicUrl("/favicon/apple-touch-icon.png"),
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
   keywords: [
     "Namibia luxury lodge",
     "savannah bungalow",
