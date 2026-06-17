@@ -1,157 +1,106 @@
-import './globals.css'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import type { Metadata, Viewport } from 'next'
+import "@/styles/global.css";
+import type { Metadata, Viewport } from "next";
 
-import { CookieBanner } from '@/components/layout/cookie/CookieBanner'
-import { Footer } from '@/components/layout/base/Footer'
-import { InitialLoadingGate } from '@/components/sections/InitialLoadingGate'
-import { Navbar } from '@/components/layout/base/Navbar'
-import { SettingsMenuOffcanvas } from '@/components/layout/settings/SettingsMenuOffcanvas'
-import {
-  COMPANY_DETAILS,
-  SEO_IMAGE,
-  SEO_KEYWORDS,
-  SITE_DESCRIPTION,
-  SITE_LOCALE,
-  SITE_NAME,
-  SITE_TITLE,
-  SITE_URL,
-  getAbsoluteUrl,
-} from '@/constants/seo'
-import { AppProviders } from '@/providers/AppProviders'
+const siteName = "Mt.Otjiku Getaway";
+const siteDescription =
+  "A futuristic luxury bungalow accommodation on Namibia's savannah plains, set near Otjiku in Otjozondjupa.";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.SITE_URL ||
+  "http://localhost:3000";
+const heroImage =
+  "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&q=80";
 
 const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'ProfessionalService',
-      '@id': `${SITE_URL}/#business`,
-      name: SITE_NAME,
-      legalName: COMPANY_DETAILS.legalName,
-      url: SITE_URL,
-      email: COMPANY_DETAILS.email,
-      taxID: COMPANY_DETAILS.taxId,
-      image: getAbsoluteUrl(SEO_IMAGE.url),
-      logo: getAbsoluteUrl('/images/logos/SOFTIQ_web_apps.svg'),
-      address: {
-        '@type': 'PostalAddress',
-        ...COMPANY_DETAILS.address,
-      },
-      areaServed: ['CZ', 'EU'],
-      priceRange: '10000 CZK - 35000 CZK',
-      serviceType: [
-        'Webové stránky na míru',
-        'Podnikové aplikace',
-        'AI agenti',
-        'Automatizace procesů',
-        'Realitní weby',
-      ],
-    },
-    {
-      '@type': 'WebSite',
-      '@id': `${SITE_URL}/#website`,
-      name: SITE_NAME,
-      url: SITE_URL,
-      inLanguage: 'cs-CZ',
-      publisher: {
-        '@id': `${SITE_URL}/#business`,
-      },
-      description: SITE_DESCRIPTION,
-    },
-  ],
-}
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  name: siteName,
+  description: siteDescription,
+  url: siteUrl,
+  image: heroImage,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Otjiku",
+    addressRegion: "Otjozondjupa",
+    addressCountry: "NA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -21.19305,
+    longitude: 16.88219,
+  },
+  priceRange: "$$$$",
+};
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: {
-    default: SITE_TITLE,
-    template: `%s | ${SITE_NAME}`,
-  },
-  description: SITE_DESCRIPTION,
-  manifest: '/manifest.json',
-  applicationName: SITE_NAME,
-  keywords: SEO_KEYWORDS,
-  authors: [{ name: COMPANY_DETAILS.legalName, url: SITE_URL }],
-  creator: COMPANY_DETAILS.legalName,
-  publisher: SITE_NAME,
-  category: 'technology',
+  metadataBase: new URL(siteUrl),
+  title: `${siteName} | Luxury Savannah Bungalows in Namibia`,
+  description: siteDescription,
+  manifest: "/manifest.json",
+  applicationName: siteName,
+  keywords: [
+    "Namibia luxury lodge",
+    "savannah bungalow",
+    "Otjiku accommodation",
+    "luxury safari Namibia",
+    "Mt.Otjiku Getaway",
+  ],
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   openGraph: {
-    type: 'website',
-    locale: SITE_LOCALE,
-    url: '/',
-    siteName: SITE_NAME,
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-    images: [SEO_IMAGE],
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName,
+    title: `${siteName} | Luxury Savannah Bungalows in Namibia`,
+    description: siteDescription,
+    images: [
+      {
+        url: heroImage,
+        width: 1920,
+        height: 1080,
+        alt: "Namibian savannah at golden hour",
+      },
+    ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-    images: [SEO_IMAGE.url],
+    card: "summary_large_image",
+    title: `${siteName} | Luxury Savannah Bungalows in Namibia`,
+    description: siteDescription,
+    images: [heroImage],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
   },
-  icons: {
-    icon: '/images/logos/SOFTIQ_web_apps.svg',
-    shortcut: '/images/logos/SOFTIQ_web_apps.svg',
-    apple: '/images/logos/SOFTIQ_web_apps.svg',
-  },
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-}
+};
 
 export const viewport: Viewport = {
-  themeColor: '#ffffff',
-  colorScheme: 'light dark',
-}
+  themeColor: "#0D0C0A",
+  colorScheme: "dark",
+};
 
 function serializeStructuredData(data: unknown) {
-  return JSON.stringify(data).replace(/</g, '\\u003c')
+  return JSON.stringify(data).replace(/</g, "\\u003c");
 }
 
 export default function RootLayout({
-                                     children,
-                                   }: {
-  children: React.ReactNode
-}) {
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-      <html lang="cs">
+    <html lang="en">
       <body>
-      <script
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: serializeStructuredData(structuredData),
           }}
-      />
-      <AppProviders>
-        <InitialLoadingGate>
-          <div className="flex min-h-screen flex-col">
-            <Navbar />
-            <div className="flex-1">{children}</div>
-            <Footer />
-            <CookieBanner />
-            <SettingsMenuOffcanvas />
-          </div>
-        </InitialLoadingGate>
-      </AppProviders>
+        />
+        {children}
       </body>
-      </html>
-  )
+    </html>
+  );
 }

@@ -1,20 +1,12 @@
 {
-  "name": "Next.js Tailwind Template",
-  "short_name": "Template",
-  "description": "A clean Next.js and Tailwind CSS starter template.",
+  "name": "Mt.Otjiku Getaway",
+  "short_name": "Mt.Otjiku",
+  "description": "Luxury savannah bungalows near Otjiku, Namibia.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#0D0C0A",
+  "theme_color": "#0D0C0A",
   "orientation": "portrait-primary",
-  "lang": "cs",
-  "icons": [
-    {
-      "src": "/images/logos/softiq.svg",
-      "sizes": "383x136",
-      "type": "image/png",
-      "purpose": "any"
-    }
-  ]
+  "lang": "en"
 }
